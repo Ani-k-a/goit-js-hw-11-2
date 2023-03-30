@@ -25,7 +25,7 @@ async fetchPosts (searchQuery) {
      const response = await fetch(`${URL}?${params}`);
      const images = await response.json();
      this.incrementPage();
-     return images;
+     return images.hits;
 }
 
 incrementPage () {
