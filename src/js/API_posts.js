@@ -16,6 +16,7 @@ async fetchPosts (searchQuery) {
         q: this.searchQuery,
         image_type: 'photo',
         prientation: "horizontal",
+        min_width: '350px',
         safesearch: true,
         lang: "en",
         per_page: 40,
@@ -25,7 +26,7 @@ async fetchPosts (searchQuery) {
      const response = await fetch(`${URL}?${params}`);
      const images = await response.json();
      this.incrementPage();
-     return images.hits;
+     return images;
 }
 
 incrementPage () {
