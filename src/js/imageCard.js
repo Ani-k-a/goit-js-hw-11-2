@@ -1,8 +1,8 @@
-export const imageCard = ({webformatURL, tags, likes, views, comments, downloads}) =>
+export const imageCard = ({webformatURL, tags, largeImageURL, likes, views, comments, downloads}) =>
 `<div class="photo-card">
-    <div class="image-box">
-      <img src="${webformatURL}" alt="${tags}" loading="lazy" />
-    </div>
+        <a class="gallery__link" href="${largeImageURL}">
+        <img src="${webformatURL}" alt="${tags}" loading="lazy" />
+     </a>
     <div class="info">
       <p class="info-item">
         <b>Likes</b>

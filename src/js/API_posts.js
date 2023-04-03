@@ -1,3 +1,5 @@
+
+import axios from "axios";
 export default class NewApiService {
 
     constructor() {
@@ -23,10 +25,10 @@ async fetchPosts (searchQuery) {
         page: this.page,  
     })
     
-     const response = await fetch(`${URL}?${params}`);
-     const images = await response.json();
+    //  const response = await fetch(`${URL}?${params}`);
+    //  const images = await response.json();
      this.incrementPage();
-     return images;
+     return (await axios.get(`${URL}?${params}`)).data;
 }
 
 incrementPage () {
