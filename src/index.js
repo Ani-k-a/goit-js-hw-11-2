@@ -43,6 +43,10 @@ const onSearch = async (e) => {
         newApiService.resetPage();
         const articles = await newApiService.fetchPosts();
         const totalHits = articles.totalHits;
+        
+        if(totalHits > 40) {
+            loadMoreBtn.classList.remove('is-hiden');
+        }
 
         if (totalHits === 0) {
             Notiflix.Notify.warning('Sorry, there are no images matching your search query. Please try again.')
@@ -50,9 +54,7 @@ const onSearch = async (e) => {
         }
         Notiflix.Notify.info(`Hooray! We found ${totalHits} images.`)
         appendArticlesMarkup(articles.hits);
-        if(totalHits > 40) {
-            loadMoreBtn.classList.remove('is-hiden');
-        }
+        
 
     }
     catch (error) {
